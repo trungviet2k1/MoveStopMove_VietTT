@@ -5,7 +5,7 @@ using TMPro;
 public class CharacterCanvas : MonoBehaviour
 {
     [SerializeField] private Transform Character;
-    [SerializeField] private EnemyRandomSkin _enemySkin;
+    [SerializeField] private SkinController enemySkin;
     [SerializeField] private Image CharacterLevelBG;
     [SerializeField] private TextMeshProUGUI CharacterLevelText;
     [SerializeField] private TextMeshProUGUI CharacterName;
@@ -29,6 +29,7 @@ public class CharacterCanvas : MonoBehaviour
     private void Start()
     {
         characterNameTextMeshPro = CharacterName.gameObject.GetComponent<TextMeshProUGUI>();
+
         if (Character.gameObject.CompareTag(Constants.PLAYER))
         {
             characterNameTextMeshPro.text = "You";
@@ -38,10 +39,12 @@ public class CharacterCanvas : MonoBehaviour
         }
         else
         {
+            Color randomColor = new(Random.value, Random.value, Random.value);
+            enemySkin._enemySkin.EnemyColor[enemyController.EnemySkinID].color = randomColor;
             characterNameTextMeshPro.text = enemyController.enemyName.ToString();
-            characterNameTextMeshPro.color = _enemySkin.EnemyColor[enemyController.EnemySkinID].color;
+            characterNameTextMeshPro.color = randomColor;
             characterLevelTextMeshPro.text = enemyController.Level.ToString();
-            CharacterLevelBG.color = _enemySkin.EnemyColor[enemyController.EnemySkinID].color;
+            CharacterLevelBG.color = randomColor;
         }
     }
 

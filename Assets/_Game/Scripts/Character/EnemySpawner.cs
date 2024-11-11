@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour, IInitializeVariables
     private enum SpawnArea { bottomLeft, bottomRight, upLeft, upRight }
 
     [SerializeField] protected int characterOnMap;
+    [SerializeField] private TargetManagement targetManagement;
 
     private SpawnArea areaToSpawn;
     private int spawnAmount;
@@ -12,6 +13,10 @@ public class EnemySpawner : MonoBehaviour, IInitializeVariables
     void Start()
     {
         InitializeVariables();
+        if (targetManagement == null)
+        {
+            targetManagement = FindObjectOfType<TargetManagement>();
+        }
     }
 
     void Update()
@@ -98,12 +103,16 @@ public class EnemySpawner : MonoBehaviour, IInitializeVariables
         {
             GameObject gob = Pooling.instance.Pull("Enemy", "Prefabs/Enemy");
             gob.transform.position = spawnPosition;
-
             gob.transform.SetParent(transform);
 
             EnemyController enemyController = gob.GetComponent<EnemyController>();
             enemyController.IsDeath = false;
             enemyController.InitializeVariables();
+
+            if (targetManagement != null)
+            {
+                targetManagement.AddTarget(gob.transform);
+            }
 
             spawnAmount--;
         }

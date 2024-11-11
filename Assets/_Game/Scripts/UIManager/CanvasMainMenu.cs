@@ -59,6 +59,10 @@ public class CanvasMainMenu : UICanvas
         {
             SetCountdownTimer(23);
         }
+
+        UIManager.Ins.soundState = PlayerPrefs.GetInt("SoundState", 1) == 1;
+        openSound.SetActive(UIManager.Ins.soundState);
+        noSound.SetActive(!UIManager.Ins.soundState);
     }
 
     private void CacheStartPositions()

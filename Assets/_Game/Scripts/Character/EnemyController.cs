@@ -143,6 +143,13 @@ public class EnemyController : Character, IInitializeVariables, IHit
     {
         if (SoundManagement.Ins.openSound) SoundManagement.Ins.PlaySFX(SoundManagement.Ins.dieAudio);
         currentState.OnExit(this);
+
+        TargetManagement targetManagement = FindObjectOfType<TargetManagement>();
+        if (targetManagement != null)
+        {
+            targetManagement.RemoveTarget(transform);
+        }
+
         IsDeath = true;
         agent.SetDestination(transform.position);
         GameManagement.Ins.killedAmount++;

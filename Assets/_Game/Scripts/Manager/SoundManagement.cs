@@ -20,15 +20,20 @@ public class SoundManagement : Singleton<SoundManagement>
 
     void Awake()
     {
+        openSound = PlayerPrefs.GetInt(Constants.SoundStateKey, 1) == 1;
         musicSource.clip = background;
-        SoundOn(true);
+        SoundOn(openSound);
     }
 
     public void SoundOn(bool open)
     {
         openSound = open;
+        PlayerPrefs.SetInt(Constants.SoundStateKey, openSound ? 1 : 0);
+        PlayerPrefs.Save();
+
         musicSource.mute = !openSound;
         SFXSource.mute = !openSound;
+
         if (openSound && !musicSource.isPlaying)
         {
             musicSource.Play();
@@ -37,6 +42,7 @@ public class SoundManagement : Singleton<SoundManagement>
         {
             musicSource.Stop();
         }
+
     }
 
     public void PlaySFX(AudioClip clip)

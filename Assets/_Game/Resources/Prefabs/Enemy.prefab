@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1398794698284983608}
-  _enemySkin: {fileID: 11400000, guid: 00b848d18ac83544d8b67166771dcb42, type: 2}
+  enemySkin: {fileID: 2405655334962092755}
   CharacterLevelBG: {fileID: 1946553063}
   CharacterLevelText: {fileID: 653177556}
   CharacterName: {fileID: 139588186}

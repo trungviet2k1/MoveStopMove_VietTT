@@ -38,6 +38,10 @@ public class Constants
     public const string ADD_LEVEL = "AddLevel";
     #endregion
 
+    #region ===== Sound =====
+    public const string SoundStateKey = "SoundState";
+    #endregion
+
     #region ===== Weapon Shop =====
 
     public static string GetWeaponShopKey(SkinController.WeaponType weaponType)

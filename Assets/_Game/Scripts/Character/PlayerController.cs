@@ -177,6 +177,7 @@ public class PlayerController : Character, IInitializeVariables, IHit
         transform.localScale = new Vector3(1f + 0.1f * Level, 1f + 0.1f * Level, 1f + 0.1f * Level);    //Khi tăng 1 level thì sẽ tăng Scale của Player thêm 10% so với kích thước khi Start game
         MoveSpeed = (1f + 0.05f * Level) * 5f;                                                          //Tốc độ di chuyển của Player tăng 5% so với khi Start game.
         ChangeAttackRange(1.05f * AttackRange);                                                         //Tăng 5% tầm bắn
+        GameManagement.Ins.mainCamera.fieldOfView += 2;
         if (SoundManagement.Ins.openSound) SoundManagement.Ins.PlaySFX(SoundManagement.Ins.sizeUpAudio);
     }
 

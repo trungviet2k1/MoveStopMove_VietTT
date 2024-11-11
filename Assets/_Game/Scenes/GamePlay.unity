@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &4089741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6404086169805179689, guid: 57e0b5a9dec751e46bbc41a6e17ad57e, type: 3}
+  m_PrefabInstance: {fileID: 2136208972796075138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7142106
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +140,7 @@ GameObject:
   - component: {fileID: 7142110}
   - component: {fileID: 7142109}
   - component: {fileID: 7142108}
+  - component: {fileID: 7142111}
   m_Layer: 5
   m_Name: Canvas - Main
   m_TagString: Untagged
@@ -224,6 +230,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &7142111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57017b295caaece44af41f675f777b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetIndicatorPrefab: {fileID: 6556489565764817983, guid: 30f950c83533b1c43aab9426831ff84d, type: 3}
+  mainCamera: {fileID: 963194227}
+  offset: 10
 --- !u!1 &13125606
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOnMap: 15
+  targetManagement: {fileID: 7142111}
 --- !u!4 &881277640
 Transform:
   m_ObjectHideFlags: 0
@@ -1611,10 +1633,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 881277640}
     m_Modifications:
+    - target: {fileID: 349365241, guid: d4527a90b0eb3ad4c96f92848203b83b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 323951334145429037, guid: d4527a90b0eb3ad4c96f92848203b83b, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 484905231714929434, guid: d4527a90b0eb3ad4c96f92848203b83b, type: 3}
       propertyPath: weaponParent
       value: 
       objectReference: {fileID: 430208697}
+    - target: {fileID: 550282283263557530, guid: d4527a90b0eb3ad4c96f92848203b83b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4089741}
     - target: {fileID: 930349572997635408, guid: d4527a90b0eb3ad4c96f92848203b83b, type: 3}
       propertyPath: m_IsActive
       value: 0
