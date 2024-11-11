@@ -84,7 +84,28 @@ public class CanvasWeaponShop : UICanvas
     {
         PlayerPrefs.SetInt(Constants.GetWeaponShopKey(weaponType), (int)WeaponState.Equipped);
         PlayerPrefs.Save();
-        GameObject.FindObjectOfType<PlayerController>().WeaponSwitching(weaponType, new SkinController.WeaponMaterialsType[] { SkinController.WeaponMaterialsType.Arrow });
+
+        Material[] weaponMaterial = weaponType switch
+        {
+            SkinController.WeaponType.Arrow => PlayerController.instance.characterSkin._weapon.ArrowDefaultMaterials,
+            SkinController.WeaponType.RedAxe => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Axe2_2],
+            SkinController.WeaponType.BlueAxe => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Axe1_2],
+            SkinController.WeaponType.Boomerang => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Boomerang_1],
+            SkinController.WeaponType.Candy001 => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Candy4_2],
+            SkinController.WeaponType.Candy002 => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Candy2_2],
+            SkinController.WeaponType.Candy003 => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.candy1_1],
+            SkinController.WeaponType.Candy004 => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Candy0_2],
+            SkinController.WeaponType.Hammer => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Hammer_1],
+            SkinController.WeaponType.Knife => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Knife_2],
+            SkinController.WeaponType.Uzi => PlayerController.instance.characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Uzi_2],
+            SkinController.WeaponType.Z => PlayerController.instance.characterSkin._weapon.ZDefaultMaterials,
+            _ => null
+        };
+
+        if (weaponMaterial != null)
+        {
+            PlayerController.instance.WeaponSwitching(weaponType, weaponMaterial);
+        }
     }
 
     private void AnimateElementsIntoView()
@@ -218,6 +239,7 @@ public class CanvasWeaponShop : UICanvas
             PlayerPrefs.Save();
 
             UpdateCoinAmount();
+            UpdateWeaponShopState();
             ShowState();
         }
     }

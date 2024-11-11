@@ -56,28 +56,28 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 457fd01a10d5f2645a535d5a03737693, type: 2}
   - {fileID: 2100000, guid: 3144598aa9c245044970a4895d3860bc, type: 2}
   Axe1DefaultMaterials:
-  - {fileID: 2100000, guid: c5715d18a326874429dfa4ddc4f52c9b, type: 2}
-  - {fileID: 2100000, guid: c9940d48fb5e13242ba921e351f64848, type: 2}
-  Axe2DefaultMaterials:
   - {fileID: 2100000, guid: 032fc9f452df4024cadea12b74b0b3a3, type: 2}
   - {fileID: 2100000, guid: 5c38677997667a146988c9f2e15fa057, type: 2}
+  Axe2DefaultMaterials:
+  - {fileID: 2100000, guid: c5715d18a326874429dfa4ddc4f52c9b, type: 2}
+  - {fileID: 2100000, guid: c9940d48fb5e13242ba921e351f64848, type: 2}
   BoomerangDefaultMaterials:
   - {fileID: 2100000, guid: 70043ad8955d38a4ab6d8618f5933aaf, type: 2}
   - {fileID: 2100000, guid: d59730ebe38da004ebdd66d02b943ea4, type: 2}
   Candy001DefaultMaterials:
-  - {fileID: 2100000, guid: 6cac662443025d34eab21a04e22a5d00, type: 2}
-  - {fileID: 2100000, guid: 46a2bb67ba7b3824399ce22ce271c72c, type: 2}
+  - {fileID: 2100000, guid: 97809f4f0c3afd0419d83ce9366fe828, type: 2}
+  - {fileID: 2100000, guid: 40fb17fd2f1216248af5872992307107, type: 2}
   Candy002DefaultMaterials:
+  - {fileID: 2100000, guid: 5e5144ca9d2b0864f82ed92722f0bd6d, type: 2}
+  - {fileID: 2100000, guid: dc00dbe63dc112045bf6f139810b3ec3, type: 2}
+  Candy003DefaultMaterials:
   - {fileID: 2100000, guid: da5839316720ee34fbb8c38d05ef23e9, type: 2}
   - {fileID: 2100000, guid: 10b7206ab3359f34e96b0103eb1acbc7, type: 2}
   - {fileID: 2100000, guid: 69c6ca38f0c9c044b9087e4a450d29a6, type: 2}
   - {fileID: 2100000, guid: 01fee33832ee39d4bbeb427da422c572, type: 2}
-  Candy003DefaultMaterials:
-  - {fileID: 2100000, guid: 5e5144ca9d2b0864f82ed92722f0bd6d, type: 2}
-  - {fileID: 2100000, guid: dc00dbe63dc112045bf6f139810b3ec3, type: 2}
   Candy004DefaultMaterials:
-  - {fileID: 2100000, guid: 97809f4f0c3afd0419d83ce9366fe828, type: 2}
-  - {fileID: 2100000, guid: 40fb17fd2f1216248af5872992307107, type: 2}
+  - {fileID: 2100000, guid: 6cac662443025d34eab21a04e22a5d00, type: 2}
+  - {fileID: 2100000, guid: 46a2bb67ba7b3824399ce22ce271c72c, type: 2}
   HammerDefaultMaterials:
   - {fileID: 2100000, guid: a2af21ceeadb56a48acdda8d2be08c54, type: 2}
   - {fileID: 2100000, guid: 70eaa27f6b5ac0f41b12f9916d170a23, type: 2}

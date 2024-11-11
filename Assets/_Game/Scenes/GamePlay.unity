@@ -726,6 +726,7 @@ MonoBehaviour:
   - {fileID: 4817279429798663764, guid: d255d67b2339808479ecc63118fe03ca, type: 3}
   - {fileID: 7687664769499618026, guid: ba06e4e3f184f5248a4fc80f7d22baab, type: 3}
   mapsParent: {fileID: 533317061}
+  currentMap: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

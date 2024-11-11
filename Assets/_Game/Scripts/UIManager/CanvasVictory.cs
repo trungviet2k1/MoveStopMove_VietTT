@@ -23,6 +23,7 @@ public class CanvasVictory : UICanvas
     private SkinController.ClothesType ClothesPresent;
     private SkinController.WeaponType WeaponPresent;
     private int PresentLoad;
+    private PlayerController player;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class CanvasVictory : UICanvas
     {
         ClothesType.Clear();   //Tạo List mới chứa các item mà Player chưa có
         WeaponType.Clear();
+        player = FindObjectOfType<PlayerController>();
 
         if (PlayerPrefs.GetInt("weaponOrClothes") == 1) WeaponOrClothes = true;
         else WeaponOrClothes = false;
@@ -75,8 +77,11 @@ public class CanvasVictory : UICanvas
         }
 
         PresentLoad += 25;
+        UIManager.Ins.coinAmount += player.Level;
+        PlayerPrefs.SetInt("Score", UIManager.Ins.coinAmount);
         PlayerPrefs.SetInt("presentLoad", PresentLoad);
         PlayerPrefs.Save();
+
         StartCoroutine(PlayAnimation());
         ShowPresentImage();
     }

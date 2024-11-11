@@ -29,11 +29,6 @@ public class GameManagement : Singleton<GameManagement>, IInitializeVariables
         SoundManagement.Ins.openSound = true;
         mapID = PlayerPrefs.GetInt("CurrentMapID", 0);
         LoadMap();
-
-        if (mapController != null)
-        {
-            mapController.SpawnMap(mapID);
-        }
     }
 
     void Update()

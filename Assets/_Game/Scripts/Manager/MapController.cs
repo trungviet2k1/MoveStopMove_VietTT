@@ -10,7 +10,7 @@ public class MapController : MonoBehaviour
     [Header("Spawned Position")]
     public Transform mapsParent;
 
-    private GameObject currentMap;
+    public GameObject currentMap;
 
     public void SpawnMap(int mapID)
     {

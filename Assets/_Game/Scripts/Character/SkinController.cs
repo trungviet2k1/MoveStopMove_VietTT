@@ -68,29 +68,41 @@ public class SkinController : MonoBehaviour
     public void CreateListOfWeaponMaterial()
     {
         ListWeaponMaterial.Add(WeaponMaterialsType.Arrow, _weapon.ArrowDefaultMaterials);
-        ListWeaponMaterial.Add(WeaponMaterialsType.Axe1, new Material[] { _weapon.Axe1DefaultMaterials[0], _weapon.Axe1DefaultMaterials[0] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Axe1_2, new Material[] { _weapon.Axe1DefaultMaterials[1], _weapon.Axe1DefaultMaterials[1] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Axe2, new Material[] { _weapon.Axe2DefaultMaterials[0], _weapon.Axe2DefaultMaterials[0] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Axe2_2, new Material[] { _weapon.Axe2DefaultMaterials[1], _weapon.Axe2DefaultMaterials[1] });
+
+        ListWeaponMaterial.Add(WeaponMaterialsType.Axe1, new Material[] { _weapon.Axe2DefaultMaterials[0], _weapon.Axe2DefaultMaterials[0] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.Axe1_2, new Material[] { _weapon.Axe2DefaultMaterials[1], _weapon.Axe2DefaultMaterials[1] });
+
+        ListWeaponMaterial.Add(WeaponMaterialsType.Axe2, new Material[] { _weapon.Axe1DefaultMaterials[0], _weapon.Axe1DefaultMaterials[0] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.Axe2_2, new Material[] { _weapon.Axe1DefaultMaterials[1], _weapon.Axe1DefaultMaterials[1] });
+
         ListWeaponMaterial.Add(WeaponMaterialsType.Boomerang_1, new Material[] { _weapon.BoomerangDefaultMaterials[0] });
         ListWeaponMaterial.Add(WeaponMaterialsType.Boomerang_2, new Material[] { _weapon.BoomerangDefaultMaterials[1] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Candy0_1, new Material[] { _weapon.Candy001DefaultMaterials[0], _weapon.Candy001DefaultMaterials[0], _weapon.Candy001DefaultMaterials[0] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Candy0_2, new Material[] { _weapon.Candy001DefaultMaterials[1], _weapon.Candy001DefaultMaterials[1], _weapon.Candy001DefaultMaterials[1] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_1, new Material[] { _weapon.Candy002DefaultMaterials[0], _weapon.Candy002DefaultMaterials[0] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_2, new Material[] { _weapon.Candy002DefaultMaterials[1], _weapon.Candy002DefaultMaterials[1] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_3, new Material[] { _weapon.Candy002DefaultMaterials[2], _weapon.Candy002DefaultMaterials[2] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_4, new Material[] { _weapon.Candy002DefaultMaterials[3], _weapon.Candy002DefaultMaterials[3] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Candy2_1, new Material[] { _weapon.Candy003DefaultMaterials[0], _weapon.Candy003DefaultMaterials[0], _weapon.Candy003DefaultMaterials[0] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Candy2_2, new Material[] { _weapon.Candy003DefaultMaterials[1], _weapon.Candy003DefaultMaterials[1], _weapon.Candy003DefaultMaterials[1] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Candy4_1, new Material[] { _weapon.Candy004DefaultMaterials[0], _weapon.Candy004DefaultMaterials[0], _weapon.Candy004DefaultMaterials[0] });
-        ListWeaponMaterial.Add(WeaponMaterialsType.Candy4_2, new Material[] { _weapon.Candy004DefaultMaterials[1], _weapon.Candy004DefaultMaterials[1], _weapon.Candy004DefaultMaterials[1] });
+
+        ListWeaponMaterial.Add(WeaponMaterialsType.Candy0_1, new Material[] { _weapon.Candy004DefaultMaterials[0], _weapon.Candy004DefaultMaterials[0], _weapon.Candy004DefaultMaterials[0] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.Candy0_2, new Material[] { _weapon.Candy004DefaultMaterials[1], _weapon.Candy004DefaultMaterials[1], _weapon.Candy004DefaultMaterials[1] });
+
+        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_1, new Material[] { _weapon.Candy003DefaultMaterials[0], _weapon.Candy003DefaultMaterials[0] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_2, new Material[] { _weapon.Candy003DefaultMaterials[1], _weapon.Candy003DefaultMaterials[1] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_3, new Material[] { _weapon.Candy003DefaultMaterials[2], _weapon.Candy003DefaultMaterials[2] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.candy1_4, new Material[] { _weapon.Candy003DefaultMaterials[3], _weapon.Candy003DefaultMaterials[3] });
+
+        ListWeaponMaterial.Add(WeaponMaterialsType.Candy2_1, new Material[] { _weapon.Candy002DefaultMaterials[0], _weapon.Candy002DefaultMaterials[0], _weapon.Candy002DefaultMaterials[0] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.Candy2_2, new Material[] { _weapon.Candy002DefaultMaterials[1], _weapon.Candy002DefaultMaterials[1], _weapon.Candy002DefaultMaterials[1] });
+
+        ListWeaponMaterial.Add(WeaponMaterialsType.Candy4_1, new Material[] { _weapon.Candy001DefaultMaterials[0], _weapon.Candy001DefaultMaterials[0], _weapon.Candy001DefaultMaterials[0] });
+        ListWeaponMaterial.Add(WeaponMaterialsType.Candy4_2, new Material[] { _weapon.Candy001DefaultMaterials[1], _weapon.Candy001DefaultMaterials[1], _weapon.Candy001DefaultMaterials[1] });
+
         ListWeaponMaterial.Add(WeaponMaterialsType.Hammer_1, new Material[] { _weapon.HammerDefaultMaterials[0], _weapon.HammerDefaultMaterials[0] });
         ListWeaponMaterial.Add(WeaponMaterialsType.Hammer_2, new Material[] { _weapon.HammerDefaultMaterials[1], _weapon.HammerDefaultMaterials[1] });
+
         ListWeaponMaterial.Add(WeaponMaterialsType.Knife_1, new Material[] { _weapon.KnifeDefaultMaterials[0], _weapon.KnifeDefaultMaterials[0] });
         ListWeaponMaterial.Add(WeaponMaterialsType.Knife_2, new Material[] { _weapon.KnifeDefaultMaterials[1], _weapon.KnifeDefaultMaterials[1] });
+
         ListWeaponMaterial.Add(WeaponMaterialsType.Uzi_1, new Material[] { _weapon.UziDefaultMaterials[0], _weapon.UziDefaultMaterials[0] });
         ListWeaponMaterial.Add(WeaponMaterialsType.Uzi_2, new Material[] { _weapon.UziDefaultMaterials[1], _weapon.UziDefaultMaterials[1] });
+
         ListWeaponMaterial.Add(WeaponMaterialsType.Z, _weapon.ZDefaultMaterials);
+
         ListWeaponMaterial.Add(WeaponMaterialsType.Azure, new Material[] { _weapon.CustomMaterials[0] });
         ListWeaponMaterial.Add(WeaponMaterialsType.Black, new Material[] { _weapon.CustomMaterials[1] });
         ListWeaponMaterial.Add(WeaponMaterialsType.Blue, new Material[] { _weapon.CustomMaterials[2] });

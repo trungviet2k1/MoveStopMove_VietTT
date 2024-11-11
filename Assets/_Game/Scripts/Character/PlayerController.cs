@@ -134,7 +134,7 @@ public class PlayerController : Character, IInitializeVariables, IHit
         MoveSpeed = 6f;
         WeaponListCreate();                 //Khởi tạo danh sách vũ khí
         characterSkin.CreateListOfWeaponMaterial();       //Khởi tạo danh sách Material của vũ khí
-        WeaponSwitching(SkinController.WeaponType.Hammer, new SkinController.WeaponMaterialsType[] { SkinController.WeaponMaterialsType.Hammer_1 });
+        WeaponSwitching(SkinController.WeaponType.Hammer, characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Hammer_1]);
         UpdatePlayerItem();
         IInitializeSingleton();
         ChangeAttackRange(AttackRange);
@@ -180,7 +180,7 @@ public class PlayerController : Character, IInitializeVariables, IHit
         if (SoundManagement.Ins.openSound) SoundManagement.Ins.PlaySFX(SoundManagement.Ins.sizeUpAudio);
     }
 
-    public void WeaponSwitching(SkinController.WeaponType _weaponType, SkinController.WeaponMaterialsType[] _weaponMaterial)
+    public void WeaponSwitching(SkinController.WeaponType _weaponType, Material[] _weaponMaterial)
     {
         AttackRange = 5f;
         AttackSpeed = 10;
@@ -190,8 +190,7 @@ public class PlayerController : Character, IInitializeVariables, IHit
         {
             if (i == (int)_weaponType)
             {
-                Material[] CurrentWeaponMaterial = GetWeaponMaterial(_weaponMaterial);
-                characterSkin.weaponInHand[i].GetComponent<Renderer>().sharedMaterials = CurrentWeaponMaterial;
+                characterSkin.weaponInHand[i].GetComponent<Renderer>().sharedMaterials = _weaponMaterial;
                 characterSkin.weaponInHand[i].SetActive(true);
             }
             else
@@ -200,24 +199,6 @@ public class PlayerController : Character, IInitializeVariables, IHit
             }
         }
         AddWeaponPower();
-    }
-
-    Material[] GetWeaponMaterial(SkinController.WeaponMaterialsType[] _weaponMaterial)
-    {
-        Material[] desireMaterials = new Material[_weaponMaterial.Length];
-        if (_weaponMaterial.Length == 1)
-        {
-            Material[] desireMaterial = characterSkin.ListWeaponMaterial[_weaponMaterial[0]];
-            return desireMaterial;
-        }
-        else
-        {
-            for (int i = 0; i < _weaponMaterial.Length; i++)
-            {
-                desireMaterials[i] = characterSkin.ListWeaponMaterial[_weaponMaterial[i]][0];
-            }
-        }
-        return desireMaterials;
     }
 
     public void ChangeState(IStatePlayer state)
@@ -230,19 +211,51 @@ public class PlayerController : Character, IInitializeVariables, IHit
         }
     }
 
-    public void UpdatePlayerItem() //Trang bị clothes và weapon cho Player khi tắt đi bật lại
+    public void UpdatePlayerItem() // Trang bị clothes và weapon cho Player khi tắt đi bật lại
     {
+        bool isWeaponEquipped = false;
+
         for (int i = 0; i < 12; i++)
         {
-            if (PlayerPrefs.GetInt("WeaponShop" + (SkinController.WeaponType)i) == 3)
+            SkinController.WeaponType weaponType = (SkinController.WeaponType)i;
+
+            if (PlayerPrefs.GetInt(Constants.GetWeaponShopKey(weaponType), 0) == (int)WeaponState.Equipped)
             {
-                WeaponSwitching((SkinController.WeaponType)i, new SkinController.WeaponMaterialsType[] { SkinController.WeaponMaterialsType.Arrow });
+                isWeaponEquipped = true;
+
+                Material[] weaponMaterialType = weaponType switch
+                {
+                    SkinController.WeaponType.Arrow => characterSkin._weapon.ArrowDefaultMaterials,
+                    SkinController.WeaponType.RedAxe => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Axe2_2],
+                    SkinController.WeaponType.BlueAxe => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Axe1_2],
+                    SkinController.WeaponType.Boomerang => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Boomerang_1],
+                    SkinController.WeaponType.Candy001 => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Candy4_2],
+                    SkinController.WeaponType.Candy002 => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Candy2_2],
+                    SkinController.WeaponType.Candy003 => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.candy1_1],
+                    SkinController.WeaponType.Candy004 => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Candy0_2],
+                    SkinController.WeaponType.Hammer => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Hammer_1],
+                    SkinController.WeaponType.Knife => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Knife_2],
+                    SkinController.WeaponType.Uzi => characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Uzi_2],
+                    SkinController.WeaponType.Z => characterSkin._weapon.ZDefaultMaterials,
+                    _ => new Material[] { }
+                };
+
+                WeaponSwitching(weaponType, weaponMaterialType);
+                break;
             }
+        }
+
+        if (!isWeaponEquipped)
+        {
+            SkinController.WeaponType defaultWeapon = SkinController.WeaponType.Hammer;
+            Material[] defaultWeaponMaterial = characterSkin.ListWeaponMaterial[SkinController.WeaponMaterialsType.Hammer_1];
+
+            WeaponSwitching(defaultWeapon, defaultWeaponMaterial);
         }
 
         for (int i = 0; i < 25; i++)
         {
-            if (PlayerPrefs.GetInt("ClothesShop" + (SkinController.ClothesType)i) == 4)
+            if (PlayerPrefs.GetInt(Constants.GetSkinShopKey((SkinController.ClothesType)i)) == 4)
             {
                 characterSkin.ChangeClothes((SkinController.ClothesType)i);
             }
