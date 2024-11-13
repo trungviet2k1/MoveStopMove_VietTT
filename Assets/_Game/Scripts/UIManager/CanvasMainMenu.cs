@@ -53,7 +53,7 @@ public class CanvasMainMenu : UICanvas
         if (PlayerPrefs.HasKey(targetTimeKey))
         {
             long savedTime = long.Parse(PlayerPrefs.GetString(targetTimeKey));
-            targetTime = DateTime.FromBinary(savedTime);
+            targetTime = new DateTime(savedTime);
         }
         else
         {
@@ -137,14 +137,13 @@ public class CanvasMainMenu : UICanvas
 
     private void SaveTargetTime()
     {
-        PlayerPrefs.SetString(targetTimeKey, targetTime.ToBinary().ToString());
+        PlayerPrefs.SetString(targetTimeKey, targetTime.Ticks.ToString());
         PlayerPrefs.Save();
     }
 
     void Update()
     {
         UpdateCountdownTimer();
-        if (UIManager.Ins.playerEXP > 100) UpdatePlayerRank(25);
     }
 
     private void UpdateCountdownTimer()
@@ -170,7 +169,6 @@ public class CanvasMainMenu : UICanvas
         SoundManagement.Ins.PlaySFX(SoundManagement.Ins.clickSound);
         UIManager.Ins.OpenUI(UIName.GamePlay);
         SoundManagement.Ins.ToggleMusic(false);
-        GameManagement.Ins.gameState = GameManagement.GameState.gameStarted;
     }
 
     public UIName? ConvertStringToUIName(string shopName)
@@ -212,15 +210,19 @@ public class CanvasMainMenu : UICanvas
 
     public void UpdatePlayerRank(int EXP)
     {
-        UIManager.Ins.playerEXP += EXP;
+        UIManager.Ins.playerEXP = EXP;
+        UpdateExperienceSlider();
 
         if (UIManager.Ins.playerEXP >= 100)
         {
             UIManager.Ins.playerEXP -= 100;
             PromotePlayerRank();
         }
+    }
 
-        playerEXP.value = UIManager.Ins.playerEXP;
+    private void UpdateExperienceSlider()
+    {
+        playerEXP.value = (float)UIManager.Ins.playerEXP / 100;
     }
 
     private void PromotePlayerRank()

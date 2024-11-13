@@ -10,13 +10,13 @@ public class TargetManagement : MonoBehaviour
     private readonly List<TargetIndicatorPoint> targetIndicator = new();
     private GameObject targetIndicatorContainer;
 
-    void Start()
+    private void Start()
     {
         CreateTargetIndicatorContainer();
         FindAllTargets();
     }
 
-    void Update()
+    private void Update()
     {
         if (GameManagement.Ins.gameState == GameManagement.GameState.gameStarted)
         {
@@ -34,7 +34,7 @@ public class TargetManagement : MonoBehaviour
         }
     }
 
-    void CreateTargetIndicatorContainer()
+    private void CreateTargetIndicatorContainer()
     {
         targetIndicatorContainer = GameObject.Find("Target Indicator");
 
@@ -45,7 +45,7 @@ public class TargetManagement : MonoBehaviour
         }
     }
 
-    void FindAllTargets()
+    private void FindAllTargets()
     {
         List<Character> allCharacters = GameManagement.Ins.characterList;
         int enemyCount = allCharacters.Count - 1;

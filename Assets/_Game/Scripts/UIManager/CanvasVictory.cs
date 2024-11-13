@@ -98,7 +98,6 @@ public class CanvasVictory : UICanvas
         {
             PresentLoad = 0;
             PlayerPrefs.SetInt("presentLoad", PresentLoad);
-            PlayerPrefs.Save();
             PlayerPrefs.SetInt("ClothesShop" + (SkinController.ClothesType)GetItemID((int)ClothesPresent), 3);
             PlayerPrefs.Save();
         }
@@ -106,7 +105,6 @@ public class CanvasVictory : UICanvas
         {
             PresentLoad = 0;
             PlayerPrefs.SetInt("presentLoad", PresentLoad);
-            PlayerPrefs.Save();
             PlayerPrefs.SetInt("WeaponShop" + WeaponPresent, 3);
             PlayerPrefs.Save();
         }

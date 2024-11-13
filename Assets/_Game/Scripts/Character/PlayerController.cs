@@ -14,7 +14,7 @@ public class PlayerController : Character, IInitializeVariables, IHit
     [HideInInspector] public int Level;
     private Vector3 positionToAttack;
     private IStatePlayer currentState;
-    
+
     void Start()
     {
         InitializeVariables();
@@ -111,8 +111,8 @@ public class PlayerController : Character, IInitializeVariables, IHit
             Reticle.SetActive(false);
         }
     }
-    #endregion 
-    
+    #endregion
+
     #region Singleton
     void IInitializeSingleton()
     {

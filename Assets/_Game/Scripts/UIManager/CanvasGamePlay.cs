@@ -18,7 +18,11 @@ public class CanvasGamePlay : UICanvas
         UpdateAliveNumber();
         if (guide.activeSelf)
         {
-            if (Input.GetMouseButtonDown(0)) guide.SetActive(false);
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameManagement.Ins.gameState = GameManagement.GameState.gameStarted;
+                guide.SetActive(false);
+            }
         }
         if (GameManagement.Ins.gameState == GameManagement.GameState.gameOver)
         {

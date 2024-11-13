@@ -650,6 +650,7 @@ MonoBehaviour:
   soundState: 0
   vibrationState: 0
   playerEXP: 0
+  maxEXP: 100
   playerRank: 0
   HoldingWeaponID: 0
 --- !u!4 &289901429
@@ -1349,7 +1350,7 @@ MonoBehaviour:
   spawnAmount: 0
   characterList: []
   mapController: {fileID: 533317062}
-  totalCharacterAmount: 50
+  totalCharacterAmount: 10
 --- !u!4 &1106020671
 Transform:
   m_ObjectHideFlags: 0
